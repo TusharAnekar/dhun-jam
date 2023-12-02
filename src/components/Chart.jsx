@@ -8,7 +8,6 @@ import {
 } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
-import { useRestoBarContext } from "../contexts/resto-bar-context";
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 

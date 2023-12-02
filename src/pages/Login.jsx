@@ -26,14 +26,14 @@ const Login = () => {
     <div className="flex h-screen flex-col items-center justify-center">
       <h1 className="heading mb-8">Venu Admin Login</h1>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex w-full flex-col gap-4">
         <input
           type="text"
           placeholder="Username"
           name="username"
           required
           onChange={handleInput}
-          className="rounded-lg border border-white bg-black p-2"
+          className="w-full rounded-lg border border-white bg-black p-2"
         />
         <input
           type="password"
