@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { useRestoBarContext } from "../contexts/resto-bar-context";
 import { Chart } from "../components/Chart";
+import { useRestoBarContext } from "../contexts/resto-bar-context";
 
 const Dashboard = () => {
   const {
