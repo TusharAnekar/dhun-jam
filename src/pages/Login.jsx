@@ -53,7 +53,7 @@ const Login = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="absolute right-0 top-0 h-6 w-6 cursor-pointer"
+              className="absolute right-0 top-0 mx-2 h-full w-6 cursor-pointer"
               onClick={() => setIsShowPassword((prev) => !prev)}
             >
               <path
@@ -69,7 +69,7 @@ const Login = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="absolute right-0 top-0 h-6 w-6 cursor-pointer"
+              className="absolute right-0 top-0  mx-2 h-full w-6 cursor-pointer"
               onClick={() => setIsShowPassword((prev) => !prev)}
             >
               <path
