@@ -9,11 +9,13 @@ import {
 } from "../services/dhun-jam-services";
 import { useAuthContext } from "./auth-context";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const RestoBarContext = createContext();
 
 const RestoBarProvider = ({ children }) => {
   const [restoBar, setRestoBar] = useReducer(restoBarReducer, initialRestoBar);
+  const navigate = useNavigate();
 
   const {
     auth: { id },
@@ -41,6 +43,7 @@ const RestoBarProvider = ({ children }) => {
     } catch (error) {
       toast.error("Error while fetching admin details");
       console.error(error);
+      navigate("/");
     }
   };
 
