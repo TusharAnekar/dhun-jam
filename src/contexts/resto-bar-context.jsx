@@ -1,4 +1,5 @@
-import { createContext, useContext, useReducer } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { createContext, useContext, useEffect, useReducer } from "react";
 import {
   initialRestoBar,
   restoBarReducer,
@@ -22,6 +23,7 @@ const RestoBarProvider = ({ children }) => {
   } = useAuthContext();
 
   const getAdminDetails = async () => {
+    console.log("adf");
     try {
       const response = await getAdminDetailsService(id);
       const {
@@ -47,6 +49,10 @@ const RestoBarProvider = ({ children }) => {
       navigate("/");
     }
   };
+
+  useEffect(() => {
+    id && getAdminDetails();
+  }, [id]);
 
   const handlePriceUpdate = async (updatedAmount) => {
     try {

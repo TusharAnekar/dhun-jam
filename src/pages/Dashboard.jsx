@@ -1,12 +1,9 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
 import { Chart } from "../components/Chart";
 import { useRestoBarContext } from "../contexts/resto-bar-context";
 import { useAuthContext } from "../contexts/auth-context";
 
 const Dashboard = () => {
   const {
-    getAdminDetails,
     restoBar: { amount, location, name, charge_customers, updatedAmount },
     setRestoBar,
     handlePriceUpdate,
@@ -21,10 +18,6 @@ const Dashboard = () => {
     );
 
   const amountKeys = amount && Object.keys(amount);
-
-  useEffect(() => {
-    getAdminDetails();
-  }, []);
 
   const handleChargeCustomer = (e) => {
     setRestoBar({
@@ -54,7 +47,7 @@ const Dashboard = () => {
 
   return (
     <>
-      {amount && (
+      {name && (
         <div className="flex min-h-screen flex-col items-center justify-center gap-4">
           <h1 className="heading font-bold">
             {name}, {location} onn Dhun Jam
