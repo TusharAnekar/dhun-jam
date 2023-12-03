@@ -75,7 +75,7 @@ const Dashboard = () => {
                   name="charge-songs"
                   id="no"
                   className="mr-2  accent-violet-500"
-                  defaultChecked={charge_customers ? true : false}
+                  defaultChecked={charge_customers ? false : true}
                   onClick={handleChargeCustomer}
                 />
                 <label htmlFor="no">No</label>

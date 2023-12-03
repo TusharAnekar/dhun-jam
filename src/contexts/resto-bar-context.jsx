@@ -23,7 +23,6 @@ const RestoBarProvider = ({ children }) => {
   } = useAuthContext();
 
   const getAdminDetails = async () => {
-    console.log("adf");
     try {
       const response = await getAdminDetailsService(id);
       const {
