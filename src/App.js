@@ -20,7 +20,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <div className="pages">
+      <div className="pages my-8">
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>

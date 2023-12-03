@@ -30,7 +30,6 @@ const RestoBarProvider = ({ children }) => {
           data: { amount, location, name, charge_customers },
         },
       } = response;
-      console.log(amount, "amount");
 
       if (status === 200) {
         setRestoBar({ type: "SET_AMOUNT", payload: amount });

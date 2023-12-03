@@ -2,6 +2,11 @@
 
 A web app to customize the payment of song.
 
+## Login Details
+
+- username: DJ@4
+- password: Dhunjam@2023
+
 ## Live Link - https://dhun-jam-assignment-frontend.netlify.app/
 
 ## Installation
@@ -26,6 +31,7 @@ A web app to customize the payment of song.
 - User can set custom amount of song.
 - Graph representaion of the values.
 - Able to update the amounts of the songs.
+- Logout user
 
 ## Built with -
 

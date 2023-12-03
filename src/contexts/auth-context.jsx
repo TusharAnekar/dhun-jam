@@ -30,8 +30,15 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const logout = () => {
+    setAuth({ type: "SET_ID", payload: 0 });
+    setAuth({ type: "SET_TOKEN", payload: "" });
+    toast.success("Logout successfully.");
+    navigate("/");
+  };
+
   return (
-    <AuthContext.Provider value={{ auth, setAuth, login }}>
+    <AuthContext.Provider value={{ auth, setAuth, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

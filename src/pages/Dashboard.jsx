@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { Chart } from "../components/Chart";
 import { useRestoBarContext } from "../contexts/resto-bar-context";
+import { useAuthContext } from "../contexts/auth-context";
 
 const Dashboard = () => {
   const {
@@ -10,6 +11,8 @@ const Dashboard = () => {
     setRestoBar,
     handlePriceUpdate,
   } = useRestoBarContext();
+
+  const { logout } = useAuthContext();
 
   const requestAmount =
     amount &&
@@ -43,6 +46,10 @@ const Dashboard = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handlePriceUpdate(updatedAmount);
+  };
+
+  const handleLogout = () => {
+    logout();
   };
 
   return (
@@ -128,6 +135,12 @@ const Dashboard = () => {
               Save
             </button>
           </form>
+          <button
+            className="w-full rounded-lg bg-red-600 py-2"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
         </div>
       )}
     </>
