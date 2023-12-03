@@ -6,10 +6,12 @@ A web app to customize the payment of song.
 
 ## Installation
 
+```
 1. git clone https://github.com/TusharAnekar/dhun-jam.git
 2. cd dhun-jam
 3. npm install
 4. npm start
+```
 
 ## Pages and Features
 
