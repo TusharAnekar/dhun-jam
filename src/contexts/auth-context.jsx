@@ -2,6 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { authReducer, initialAuth } from "../reducers/auth-reducer";
 import { loginService } from "../services/dhun-jam-services";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AuthContext = createContext();
 
@@ -20,9 +21,11 @@ const AuthProvider = ({ children }) => {
         setAuth({ type: "SET_ID", payload: data.data.id });
         setAuth({ type: "SET_TOKEN", payload: data.data.token });
         navigate("/dashboard");
+        toast.success("Logged in successfully");
       }
     } catch (error) {
       setAuth({ type: "TOGGLE_IS_LOADING" });
+      toast.error("Logged in failed");
       console.error(error);
     }
   };

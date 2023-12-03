@@ -8,6 +8,7 @@ import {
   priceUpdateService,
 } from "../services/dhun-jam-services";
 import { useAuthContext } from "./auth-context";
+import { toast } from "react-toastify";
 
 const RestoBarContext = createContext();
 
@@ -38,6 +39,7 @@ const RestoBarProvider = ({ children }) => {
         });
       }
     } catch (error) {
+      toast.error("Error while fetching admin details");
       console.error(error);
     }
   };
@@ -45,7 +47,6 @@ const RestoBarProvider = ({ children }) => {
   const handlePriceUpdate = async (updatedAmount) => {
     try {
       const response = await priceUpdateService(id, updatedAmount);
-      console.log(response);
       const {
         status,
         data: {
@@ -55,9 +56,11 @@ const RestoBarProvider = ({ children }) => {
 
       if (status === 200) {
         setRestoBar({ type: "SET_AMOUNT", payload: amount });
+        toast.success("Updated amounts successfully.");
       }
     } catch (error) {
       console.error(error);
+      toast.error("Failed updating amounts.");
     }
   };
 
