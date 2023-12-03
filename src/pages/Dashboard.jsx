@@ -1,17 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Chart } from "../components/Chart";
 import { useRestoBarContext } from "../contexts/resto-bar-context";
 
 const Dashboard = () => {
   const {
     getAdminDetails,
-    restoBar: { amount, location, name, charge_customers },
+    restoBar: { amount, location, name, charge_customers, updatedAmount },
     setRestoBar,
     handlePriceUpdate,
   } = useRestoBarContext();
-
-  const [updatedAmount, setUpdatedAmount] = useState({ ...amount });
 
   const requestAmount =
     amount &&
@@ -33,9 +31,12 @@ const Dashboard = () => {
   };
 
   const handleAmount = (e) => {
-    setUpdatedAmount({
-      ...updatedAmount,
-      [e.target.name]: parseInt(e.target.value),
+    setRestoBar({
+      type: "UPDATE_UPDATED_AMOUNT",
+      payload: {
+        categoryNumber: [e.target.name],
+        value: parseInt(e.target.value),
+      },
     });
   };
 
@@ -118,7 +119,7 @@ const Dashboard = () => {
               </div>
             </div>
 
-            {charge_customers && <Chart updatedAmount={updatedAmount} />}
+            {charge_customers && <Chart />}
 
             <button
               disabled={charge_customers ? false : true}

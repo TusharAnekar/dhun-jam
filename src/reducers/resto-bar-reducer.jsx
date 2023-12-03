@@ -3,6 +3,7 @@ const initialRestoBar = {
   location: "",
   name: "",
   charge_customers: null,
+  updatedAmount: {},
 };
 
 const restoBarReducer = (state, { type, payload }) => {
@@ -15,10 +16,15 @@ const restoBarReducer = (state, { type, payload }) => {
       return { ...state, name: payload };
     case "SET_CHARGE_CUSTOMERS":
       return { ...state, charge_customers: payload };
-    case "UPDATE_AMOUNT":
+    case "SET_UPDATED_AMOUNT":
+      return { ...state, updatedAmount: payload };
+    case "UPDATE_UPDATED_AMOUNT":
       return {
         ...state,
-        amount: { ...state.amount, [payload.categoryNumber]: payload.value },
+        updatedAmount: {
+          ...state.updatedAmount,
+          [payload.categoryNumber]: payload.value,
+        },
       };
     default:
       return state;
