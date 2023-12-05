@@ -24,6 +24,14 @@ const Login = () => {
     login(loginDetails);
   };
 
+  const handleSignInTestUser = () => {
+    setLoginDetails({
+      ...loginDetails,
+      username: "DJ@4",
+      password: "Dhunjam@2023",
+    });
+  };
+
   return (
     <div className="flex h-screen flex-col items-center justify-center">
       <h1 className="heading mb-8">Venu Admin Login</h1>
@@ -33,6 +41,7 @@ const Login = () => {
           type="text"
           placeholder="Username"
           name="username"
+          value={loginDetails.username}
           required
           onChange={handleInput}
           className="w-full rounded-lg border border-white bg-black p-2"
@@ -42,6 +51,7 @@ const Login = () => {
             placeholder="Password"
             name="password"
             type={isShowPassword ? "text" : "password"}
+            value={loginDetails.password}
             required
             onChange={handleInput}
             className="w-full rounded-lg border border-white bg-black p-2"
@@ -85,19 +95,28 @@ const Login = () => {
             </svg>
           )}
         </div>
-        <button type="submit" className="mt-4 rounded-lg bg-violet-800 p-2">
-          {isLoading ? (
-            <span>
-              <svg
-                className="... mr-3 h-5 w-5 animate-spin"
-                viewBox="0 0 24 24"
-              ></svg>
-              Signing In...
-            </span>
-          ) : (
-            "Sign In"
-          )}
-        </button>
+        {isLoading ? (
+          <div
+            type="button"
+            class="flex justify-center rounded-lg bg-violet-800 p-2"
+          >
+            <span class="mr-3 h-5 w-5 animate-spin rounded-full border-4 border-r-transparent"></span>
+            Processing...
+          </div>
+        ) : (
+          <button type="submit" className="mt-4 rounded-lg bg-violet-800 p-2">
+            Sign In
+          </button>
+        )}
+
+        {!isLoading && (
+          <button
+            onClick={handleSignInTestUser}
+            className="mt-2 rounded-lg bg-violet-600 p-2"
+          >
+            Sign In with test user
+          </button>
+        )}
       </form>
 
       <NavLink className="mt-4">New Registration?</NavLink>
