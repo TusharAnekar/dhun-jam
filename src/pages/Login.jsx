@@ -56,7 +56,7 @@ const Login = () => {
             onChange={handleInput}
             className="w-full rounded-lg border border-white bg-black p-2"
           />
-          {isShowPassword ? (
+          {!isShowPassword ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
